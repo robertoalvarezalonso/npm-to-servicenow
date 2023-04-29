@@ -1,7 +1,6 @@
 module.exports = function ({
   types: t
 }) {
-  console.log("modules")
   function genLocString(comment) {
     return `c${comment.loc.start.column}l${comment.loc.start.line}`;
   }

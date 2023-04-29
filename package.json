@@ -4,12 +4,15 @@
   "scripts": {
     "build": "npm run ncc && npm run babel ",
     "ncc": "ncc build ./src/index.js --no-source-map-register -C",
-    "babel": "babel dist -d lib --config-file ./babel.config.json -d dist_sn"
+    "babel": "babel dist -d dist_sn --config-file ./babel.config.json "
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@vercel/ncc": "^0.36.1"
+  },
+  "dependencies": {
+    "hello-world-npm": "^1.1.1"
   }
 }

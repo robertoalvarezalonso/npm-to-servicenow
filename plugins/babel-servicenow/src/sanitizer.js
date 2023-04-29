@@ -66,6 +66,22 @@ module.exports = function ({
         }
         if (reservedWords.hasOwnProperty(path.node.name)) { path.node.name = path.node.name + "_sn" }
       },
+
+      IfStatement(path) {
+        if (path.node.test.left?.argument?.name == "__nccwpck_require__")
+          path.remove();
+      },
+
+      ExpressionStatement(path) {
+        // Removes   Object.defineProperty(Constructor, "prototype", { writable: false });
+        if (path.node.expression.type == "CallExpression" && path.node.expression.arguments[1]?.value == "prototype")
+          path.remove();
+
+        if (path.node.expression.type == "CallExpression" && path.node.leadingComments && path.node.leadingComments[0].value.indexOf("wrapped in an IIFE") != -1)
+          path.replaceWithMultiple(path.node.expression.callee.body.body);
+        //console.log(path.node.expression.callee.body)
+
+      },
       //if a reserved word is used as a property, move it to a bracket syntax
       /* MemberExpression(path) {
         if (

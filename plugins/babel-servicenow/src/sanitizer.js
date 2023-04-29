@@ -57,8 +57,6 @@ module.exports = function ({
     while: true
   };
 
-  console.log("sanitizer")
-
   return {
     visitor: {
       Identifier(path) {

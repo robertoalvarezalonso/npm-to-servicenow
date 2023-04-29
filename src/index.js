@@ -1,1 +1,2 @@
 // Write here your code
+() => { }

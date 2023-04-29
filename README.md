@@ -1,4 +1,6 @@
 # npm-to-servicenow
+Compile a Node.js module into a single file, and ServiceNow ready.
+
 1. Write your code in `./src/index`. 
 2. Execute `npm run build` from your terminal.
 3. Find your compiled code in `./dist_sn`.

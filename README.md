@@ -7,14 +7,9 @@ Compile a Node.js module into a single ServiceNow-ready file.
 4. Try your code in ServiceNow, for instance in the background script. If it works you are ready to save it as a Script Include.
 5. If ServiceNow complains about any reserved word you have in your code, add it to [sanitizer.js](plugins/babel-servicenow/src/sanitizer.js) and build again.
 
-### Limitations
-`new Map();`
-`new Uint8Array();`
 
-### References
-It leverages [vercel/ncc](https://github.com/vercel/ncc) for compiling the Node.js module into a single file and a modified version of the Babel plugins and presets of [nuovolo/sincronia](https://github.com/nuvolo/sincronia)
 
-### Example
+### Example (📽️ [Video](http://www.youtube.com/watch?v=TyRbXMVzWmw))
 
 In this example we will use the spread operator, which is not valid in ServiceNow and we will import the [hellow-world-npm](https://www.npmjs.com/package/hello-world-npm) module, from which we will use the function `helloWorld`.
 ```javascript
@@ -37,8 +32,18 @@ Test.prototype = {
 
 Once we run the build, we will get the code ready to be used in a Script Include record in ServiceNow. For that we only have to create a new Script Include, and paste in the Script field the code we have generated.
 
-![image](https://user-images.githubusercontent.com/81647176/235313895-bf86bb21-a378-457e-a1bb-fd0689642401.png)
+![image](https://user-images.githubusercontent.com/81647176/235315390-ab0f3450-e6a0-4c0e-96e2-44588454b03c.png)
+
 
 And it's ready to be used in our instance 🎉
 
-![image](https://user-images.githubusercontent.com/81647176/235313924-54bd211d-ddb0-484c-8d69-dc4e0091e58c.png)
+![image](https://user-images.githubusercontent.com/81647176/235315318-3f9dc5c3-86b1-485b-a0f1-46bb66d8b6ab.png)
+
+
+### Limitations
+Unfortunately your code still won't work if it contains any of the following classes non supported by Rhino:
+* `new Map();`
+* `new Uint8Array();`
+
+### References
+This repo leverages [vercel/ncc](https://github.com/vercel/ncc) for compiling the Node.js module into a single file and a modified version of the Babel plugins and presets from [nuovolo/sincronia](https://github.com/nuvolo/sincronia)

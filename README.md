@@ -10,3 +10,6 @@ Compile a Node.js module into a single ServiceNow-ready file.
 ### Limitations
 `new Map();`
 `new Uint8Array();`
+
+### References
+It leverages [vercel/ncc](https://github.com/vercel/ncc) for compiling the Node.js module into a single file and a modified version of the Babel plugins and presets of [nuovolo/sincronia](https://github.com/nuvolo/sincronia)

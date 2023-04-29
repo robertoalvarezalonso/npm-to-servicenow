@@ -1,0 +1,21 @@
+{
+    "plugins": [
+        "./plugins/babel-servicenow/src/modules.js",
+    ],
+    "presets": [
+        "./plugins/babel-servicenow/src/preset-servicenow.js",
+        [
+            "@babel/preset-env",
+            {
+                "debug": true,
+                "useBuiltIns": "entry",
+                "targets": {
+                    "ie": "10"
+                },
+                "corejs": {
+                    "version": "3.8"
+                }
+            }
+        ]
+    ]
+}

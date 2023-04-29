@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "npm run ncc && npm run babel ",
+    "ncc": "ncc build ./src/index.js --no-source-map-register -C",
+    "babel": "babel dist -d lib --config-file ./babel.config.json -d dist_sn"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@vercel/ncc": "^0.36.1"
+  }
+}

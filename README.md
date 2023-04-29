@@ -32,7 +32,7 @@ Test.prototype = {
 
 Once we run the build, we will get the code ready to be used in a Script Include record in ServiceNow. For that we only have to create a new Script Include, and paste in the Script field the code we have generated.
 
-![image](https://user-images.githubusercontent.com/81647176/235315390-ab0f3450-e6a0-4c0e-96e2-44588454b03c.png)
+![image](https://user-images.githubusercontent.com/81647176/235316685-e0e4e92a-7f86-4cff-b58b-a31736ae411a.png)
 
 
 And it's ready to be used in our instance 🎉
